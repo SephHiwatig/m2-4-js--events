@@ -16,9 +16,11 @@ startBtn.addEventListener("click", () => {
   // Set 11 second timeout until player loses
   // offset by 1 second because interval start after 1 second
   setTimeout(() => {
+    // Remove events on the buttons
     playButtons = document.querySelectorAll(".playButton");
     playButtons.forEach((btn) => btn.removeEventListener("click", click));
 
+    // If troll button is active
     let buttonsLeft = [...playButtons].filter(
       (btn) => ![...btn.classList].includes("clicked")
     ).length;
@@ -38,6 +40,7 @@ startBtn.addEventListener("click", () => {
       trollButton.appendChild(img);
     }
 
+    // Player always lose
     let youLost = document.createElement("h1");
     youLost.innerText = "You Lost!";
     let header = document.querySelector(".header");
@@ -105,7 +108,12 @@ function click(event) {
     "Too Slow",
     ":)",
   ];
+
+  // Toggle clicked class for the clicked button
   event.target.classList.toggle("clicked");
+
+  // For fun, catch if theres only one button left and apply mouseover event
+  // to move it around
   let playButtons = [...document.querySelectorAll(".playButton")];
   let buttonsLeft = playButtons.filter(
     (btn) => ![...btn.classList].includes("clicked")
@@ -122,6 +130,7 @@ function click(event) {
       btn.style.top = top + "px";
       btn.style.left = left + "px";
 
+      // Reposition button if it goes out of bounds after hover
       let leftFix = +btn.style.left.replace("px", "");
       if (leftFix > maxContainerWidth - btn.clientWidth) {
         btn.style.left = maxContainerWidth - btn.clientWidth + "px";
