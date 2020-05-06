@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <h1 class="time"></h1>
+    <hr />
+    <div class="stopwatch">
+      <span class="tick">00:00</span>
+      <button type="button" class="stopwatchStart">Start</button>
+      <button type="button" class="stopwatchStop">Stop</button>
+    </div>
+    <hr />
+    <div class="timer" style="margin-top: 10px;">
+      <input type="number" class="timerInput" value="10" />
+      <button type="button" class="timerBtn">Start Countdown</button>
+      <span class="kaboom" style="display: block;"></span>
+      <audio id="chimeAudio">
+        <source src="chime.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

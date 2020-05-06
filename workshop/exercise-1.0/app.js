@@ -10,4 +10,13 @@
 
 // OPTIONAL
 // Feel free to add some CSS to this once you're done
-// --------------------------------------------------
+// ---------------------------------------------
+
+let body = document.querySelector("body");
+
+body.addEventListener("click", () => {
+  let main = document.querySelector("#main");
+  let span = document.createElement("span");
+  span.innerText = "Click event fired!";
+  main.appendChild(span);
+});

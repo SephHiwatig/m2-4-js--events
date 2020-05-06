@@ -21,3 +21,32 @@
 // Stretch goal
 // Make the countdown live (show a countdown that updates several times a
 // second)
+let result = true;
+
+function timer() {
+  let timeToClick = Math.floor(Math.random() * 3 + 3);
+
+  let tracker = setInterval(() => {
+    let p = document.querySelector("#time");
+    p.innerText = timeToClick;
+    timeToClick--;
+    if (timeToClick < 0) {
+      clearInterval(tracker);
+    }
+  }, 1000);
+
+  setTimeout(() => {
+    result = false;
+  }, timeToClick * 1000 + 1000); // Offset by 1 second + 1000, because setInterval starts after 1 second
+}
+
+window.addEventListener("load", timer);
+
+document.body.addEventListener("click", () => {
+  let p = document.querySelector("#result");
+  if (result) {
+    p.innerText = "You won!";
+  } else {
+    p.innerText = "You lost!";
+  }
+});

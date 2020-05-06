@@ -13,3 +13,20 @@
 // OPTIONAL
 // Feel free to add some CSS to this once you're done
 // --------------------------------------------------
+let result = true;
+function timeout() {
+  setTimeout(() => {
+    result = false;
+  }, 1000);
+}
+
+window.addEventListener("load", timeout);
+
+document.querySelector("body").addEventListener("click", () => {
+  let p = document.querySelector("#result");
+  if (result) {
+    p.innerText = "You Won!";
+  } else {
+    p.innerText = "You Lost";
+  }
+});
